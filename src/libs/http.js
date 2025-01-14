@@ -8,7 +8,7 @@ const getBaseURL = () => {
   if (process.env.NODE_ENV === 'production') {
     return 'https://api.production.com'
   } else {
-    return 'https://api.development.com'
+    return '/'
   }
 }
 

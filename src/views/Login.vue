@@ -20,7 +20,8 @@
 <script>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import http from '@/libs/http'
+import { login } from '@/api/login'
+import { useAuthStore } from '@/stores'
 
 export default {
   name: 'Login',
@@ -31,13 +32,13 @@ export default {
 
     const handleLogin = async () => {
       try {
-        const response = await http.post('/login', {
+        const response = await login({
           username: username.value,
           password: password.value,
         })
         // 假设响应中包含 token
         const token = response.data.token
-        localStorage.setItem('token', token)
+        useAuthStore().setToken(token)
         router.push('/')
       } catch (error) {
         console.error('登录失败:', error)
