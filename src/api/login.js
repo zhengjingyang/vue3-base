@@ -1,6 +1,6 @@
-import http from '@/libs/http'
+import { mockHttp } from '@/libs/http'
 
 export const login = (data) => {
-  return http.post('/api/login', data)
+  return mockHttp.post('/login', data)
 }
 

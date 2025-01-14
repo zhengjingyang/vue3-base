@@ -36,8 +36,10 @@ export default {
           username: username.value,
           password: password.value,
         })
+        console.log(response, 'response')
+
         // 假设响应中包含 token
-        const token = response.data.token
+        const token = response.token
         useAuthStore().setToken(token)
         router.push('/')
       } catch (error) {

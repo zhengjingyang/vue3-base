@@ -27,7 +27,7 @@ const router = createRouter({
 // 路由守卫
 router.beforeEach((to, from, next) => {
   // 白名单
-  const whitelist = ['/login', '/', '/about']
+  const whitelist = ['/login']
 
   // 检查目标路由是否在白名单中
   if (whitelist.includes(to.path)) {
@@ -36,6 +36,7 @@ router.beforeEach((to, from, next) => {
 
   // 获取 token
   const token = useAuthStore().token
+  // console.log(token)
 
   if (token) {
     // 如果有 token，允许进入目标路由

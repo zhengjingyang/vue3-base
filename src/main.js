@@ -1,7 +1,5 @@
 import './assets/main.css'
-if (process.env.NODE_ENV === 'development') {
-  import('./mock')
-}
+import('./mock')
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
